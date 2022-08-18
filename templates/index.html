@@ -1,0 +1,139 @@
+{% extends "masterpage.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+      <div class="stats-wrapper">
+            <div class="summary-stats-wrapper">
+                  <div class="stats-outer-wrapper">
+
+                        <div class="stats-title">
+                              <div>Income</div>
+                              <div class="stats-title__amount">
+                                    <div>£300</div>
+                                    <div class="muted">this week</div>
+                              </div>
+                        </div>
+                        <div class="summary-stats income-stats">
+                              {% for value in data.income_summary %}
+                              <div class="bar-container">
+                                    <div class="bar">
+                                          <div class="bar-value" style="height: {{value}}%;"></div>
+                                    </div>
+                                    <div class="stats-day">{{data.dow[loop.index - 1]}}</div>
+                              </div>
+                              {% endfor %}
+                        </div>
+
+                  </div>
+            </div>
+            <div class="summary-stats-wrapper">
+                  <div class="stats-outer-wrapper">
+                        <div class="stats-title">
+                              <div>Expense</div>
+                              <div class="stats-title__amount">
+                                    <div>£243</div>
+                                    <div class="muted">this week</div>
+                              </div>
+                        </div>
+
+                        <div class="summary-stats expense-stats">
+                              {% for value in data.expense_summary %}
+                              <div class="bar-container">
+                                    <div class="bar">
+                                          <div class="bar-value" style="height: {{value}}%;"></div>
+                                    </div>
+                                    <div class="stats-day">{{data.dow[loop.index - 1]}}</div>
+                              </div>
+                              {% endfor %}
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <div class="latest-expenses-wrapper">
+            <h2>Latest Income</h2>
+            <ul>
+                  {% for value in data.income %}
+                  <li class="expenses-grid">
+                        <div class="expense-item">
+                              <div class="muted">Description</div>
+                              <div>{{value.description}}</div>
+                        </div>
+
+                        <div class="expense-date">
+                              <div class="muted">Date</div>
+                              <div>{{value.date}}</div>
+                        </div>
+                        <div class="expense-value">
+                              <div class="muted">Amount</div>
+                              <div>{{value.amount}}</div>
+                        </div>
+                        <div class="expense-actions">
+                              <div class="expense-buttons-wrapper">
+                                    <div class="expense-button_wrapper__btn-holder">
+                                          <i class="bi-pencil"></i>
+                                    </div>
+                                    <div class="expense-button_wrapper__btn-holder">
+                                          <i class="bi-trash"></i>
+                                    </div>
+                              </div>
+
+                        </div>
+                  </li>
+                  {% endfor %}
+            </ul>
+
+      </div>
+
+      <div class="latest-expenses-wrapper" style="margin-top: 35px;">
+            <h2>Latest Expenses</h2>
+            <ul>
+
+                  {% for value in data.expense %}
+                  <li class="expenses-grid">
+                        <div class="expense-item">
+                              <div class="muted">Description</div>
+                              <div>{{value.description}}</div>
+                        </div>
+
+                        <div class="expense-date">
+                              <div class="muted">Date</div>
+                              <div>{{value.date}}</div>
+                        </div>
+                        <div class="expense-value">
+                              <div class="muted">Amount</div>
+                              <div>{{value.amount}}</div>
+                        </div>
+                        <div class="expense-actions">
+                              <div class="expense-buttons-wrapper">
+                                    <div class="expense-button_wrapper__btn-holder">
+                                          <i class="bi-pencil"></i>
+                                    </div>
+                                    <div class="expense-button_wrapper__btn-holder">
+                                          <i class="bi-trash"></i>
+                                    </div>
+                              </div>
+
+                        </div>
+                  </li>
+                  {% endfor %}
+            </ul>
+
+      </div>
+
+      {% endblock %}
+
+
+      {% block scripts %}
+      {{ super() }}
+
+
+      <script>
+
+      </script>
+      {% endblock %}

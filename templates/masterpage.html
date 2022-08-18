@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <title>Income and Expense Tracker</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/sidenav.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/fab.css') }}" rel="stylesheet" />
+    {% endblock %}
+
+
+</head>
+<body class="">
+    <nav class="side-nav">
+        <ul class="side-nav__menu">
+            <li>
+                <a href="#">
+                    <i class="bi bi-clipboard-data"></i>
+                    <div class="menu-text">Dashboard</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-wallet2"></i>
+                    <div class="menu-text">Income</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-bag"></i>
+                    <div class="menu-text">Expenses</div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="mode-selector" data-mode="light">
+                    <i class="bi bi-cloud-moon"></i>
+                    <div class="menu-text">Dark</div>
+                </a>
+            </li>
+        </ul>
+
+        <div class=fab-wrapper>
+            <div class="fab">
+                <i class="bi bi-plus-lg" style="font-size: 1.4rem; font-weight:bold"></i>
+            </div>
+            <div class="fab-items">
+                <div class="fab-item">
+                    <i class="bi bi-bag-plus"></i>
+                </div>
+                <div class="fab-item">
+                    <i class="bi bi-wallet"></i>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div id="wrapper-with-side-bar">
+        {% block content %}{% endblock %}  
+    </div>
+
+{% block scripts %}   
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>
+            
+    </script>
+{% endblock %}
+</body>
+</html>
+
+
+
